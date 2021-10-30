@@ -11,7 +11,7 @@ public class Main {
 
 		public static void main(String[] args) {
 			String fichier_a_lire = "symptom.txt";
-			String fichier_final = "classement_des_symptoms.txt";
+			String fichier_final = "results.out";
 			SymptomsDataReader lecteur = new SymptomsDataReader();
 			lecteur.readSymptomsDataFromFile(fichier_a_lire, fichier_final);
 			List<String> listeDesSymtoms = lecteur.GetSymptoms();

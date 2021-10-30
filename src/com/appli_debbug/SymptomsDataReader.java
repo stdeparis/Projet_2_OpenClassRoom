@@ -26,6 +26,12 @@ public class SymptomsDataReader implements ISymptomsDataReader {
  	
  	}
  	
+         /**
+	    * @return a raw listing of all symptoms obtained fromd data source, duplicates are possible/probable
+	    * 
+	    */
+ 	
+ 	@Override
  	public List<String> GetSymptoms() {
 		ArrayList<String> result = new ArrayList<String>();
    if (filepath != null) {
@@ -47,11 +53,15 @@ public class SymptomsDataReader implements ISymptomsDataReader {
 		return result;
 	}
 
-    /**
-     * 
-     * 
-     * 
-     */
+   
+ 	  
+	   /**
+	    * If no data is available, return an empty Map 	    * 
+	    * @param listeDesSymptoms
+	    * @return a sorted Map of all Symptoms whith their number of occurency
+	    */
+ 		
+ 	@Override
 	public TreeMap<String, Integer> sortingSymptomsData(List<String> listeDesSymptoms) {
 		TreeMap<String, Integer> symptomsTri =  new TreeMap<>();
 		for (String unSymtom : listeDesSymptoms) {
@@ -64,10 +74,13 @@ public class SymptomsDataReader implements ISymptomsDataReader {
 		return symptomsTri;
 	}
 
-	/**
-	 * 
-	 * 
-	 */
+ 	
+ 	 /**
+	  *Save the results in a file
+	 * @param TreeMap
+	  */
+ 	
+	@Override
 	public void fileWriterData(TreeMap<String, Integer> map)  {
 		try {
 			FileWriter fw = new FileWriter(new File(this.outputpath));
